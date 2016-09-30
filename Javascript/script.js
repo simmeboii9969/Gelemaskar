@@ -16,6 +16,14 @@ function update() {
     
     wormX = wormX + wormVX;
     wormY = wormY + wormVY;
+    wormVY = wormVY + wormAY;
+    
+    if(wormY >= 400){
+        
+        wormVY = 0;
+        
+    }
+    
     ctx.clearRect(0, 0, 800, 500)
     ctx.drawImage(wormImg, wormX, wormY, 100, 80);
 
@@ -37,6 +45,7 @@ function keyDown(e) {
     if(e.keyCode == 32){
         //Space
         wormVY = -2;
+        wormAY = 0.05;
         
     }
 }
